@@ -1,14 +1,12 @@
 import csv
 import datetime
-import matplotlib.pyplot as plt
-import matplotlib.pyplot as ticker
 import speedtest
 import time
 
 s = speedtest.Speedtest()
 
 # Creates a csv in a folder.
-with open("./bandwidth_monitor/band_mon.csv", mode="w") as speedcsv:
+with open("./band_mon.csv", mode="w") as speedcsv:
     # Set up csv with three headers and put into a variable.
     csv_writer = csv.DictWriter(speedcsv, fieldnames=["time", "downspeed", "upspeed"])
     csv_writer.writeheader()
@@ -30,4 +28,7 @@ with open("./bandwidth_monitor/band_mon.csv", mode="w") as speedcsv:
         })
         # Sets a refresh timer for 60 seconds. 
         time.sleep(60)
+
+# csv file will not have any data until the code is finished running.
+# You need to hard stop with ctrl-c.
     
